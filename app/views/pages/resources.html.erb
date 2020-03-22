@@ -217,17 +217,25 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
   </div>
   <% end %>
 
-  <div class="col-md-12">
-    <h2>Please Consider Sharing</h2>
-  </div>
-  <div class="col-md-4">
-    <p>
-      <div class="fb-share-button" data-href="https://www.covid-updates.ca/" data-layout="button_count"
-        data-size="large"><a target="_blank"
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.covid-updates.ca%2F&amp;src=sdkpreparse"
-          class="fb-xfbml-parse-ignore">Share</a></div>
-    </p>
-  </div>
+
+<h2>Discussion/Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+
+var disqus_config = function () {
+this.page.url = 'https://www.covid-updates.ca/resources';
+this.page.identifier = 'resources';
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://covidupdates.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+
+
 
   <% if false %>
   <div class="col-md-4">
@@ -248,6 +256,12 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
   <div class="container">
     <p class="m-0 text-center text-white">We are in this together.</p>
     <p class="m-0 text-center text-white"><a href="mailto:feedback@covid-updates.ca">feedback@covid-updates.ca</a> </p>
+    <p>
+      <div class="fb-share-button" data-href="https://www.covid-updates.ca/" data-layout="button_count"
+        data-size="large"><a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.covid-updates.ca%2F&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore">Share</a></div>
+    </p>
   </div>
   <!-- /.container -->
 </footer>
