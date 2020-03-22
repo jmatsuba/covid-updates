@@ -1,10 +1,11 @@
 <% content_for :head do %>
-  <title>Canadian COVID-19 (Novel Coronavirus) Daily Briefings and Resources</title>
-  <meta property="og:url"                content="https://www.covid-updates.ca/" />
-  <meta property="og:title"              content="Canadian COVID-19 (Novel Coronavirus) Daily Briefings and Resources" />
-  <meta property="og:description"        content="Watch the latest daily breifling held by the Provincial Health Authorities or the Government of Canada. Also a source of other useful resources. " />
-  <meta property="og:image"              content="<%= image_url('opengraph2.png') %>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Canadian COVID-19 (Novel Coronavirus) Daily Briefings and Resources</title>
+<meta property="og:url" content="https://www.covid-updates.ca/" />
+<meta property="og:title" content="Canadian COVID-19 (Novel Coronavirus) Daily Briefings and Resources" />
+<meta property="og:description"
+  content="Watch the latest daily breifling held by the Provincial Health Authorities or the Government of Canada. Also a source of other useful resources. " />
+<meta property="og:image" content="<%= image_url('opengraph2.png') %>" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <% end %>
 
@@ -54,9 +55,8 @@
       <div class="col-lg-12">
         <h1 class="display-4 text-white mt-4 mb-1">Stay Informed. Save Lives.</h1>
         <p class="lead mb-5 text-white-50">Watch the latest COVID-19 Public Daily Briefings for Alberta, British
-          Columbia, Ontario and any National brefings. This site will post unedited videos of the latest news conference
-          held by the Provincial Health Authorities or the Government of Canada. We will also post videos we believe to
-          have valuable information.</p>
+          Columbia, Ontario and any National briefings. This site will post unedited videos of the latest news conference
+          held by the Provincial Health Authorities or the Government of Canada. Check out the Resources page for a curated list of science backed resources.</p>
       </div>
     </div>
   </div>
@@ -83,7 +83,8 @@
         <div class="card-body">
           <h4 class="card-title">March 22, 2020</h4>
           <p class="card-text">
-            Prime Minister Justin Trudeau says the $82-billion financial package announced earlier this week is just 'a very first step' as health-care officials warn social distancing could last months.
+            Prime Minister Justin Trudeau says the $82-billion financial package announced earlier this week is just 'a
+            very first step' as health-care officials warn social distancing could last months.
           </p>
         </div>
         <div class="card-footer">
@@ -453,22 +454,22 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
   <% end %>
 
 
-<h2>Discussion/Comments</h2>
-<div id="disqus_thread"></div>
-<script>
+  <h2>Discussion/Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
 
-var disqus_config = function () {
-this.page.url = 'https://www.covid-updates.ca/';
-this.page.identifier = 'home';
-};
+    var disqus_config = function () {
+      this.page.url = 'https://www.covid-updates.ca/';
+      this.page.identifier = 'home';
+    };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://covidupdates.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
+    (function () { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://covidupdates.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
   <% if false %>
   <div class="col-md-4">
