@@ -16,12 +16,12 @@
           </li>
         <% end %>
 
-        <li class="nav-item active">
+        <li class="nav-item <%= active == "PHB" ? "active" : "" %>" >
           <a class="nav-link" href="/">Public Health Briefings
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item <%= active == "RES" ? "active" : "" %>" >
           <a class="nav-link" href="/resources">Resources</a>
         </li>
         <!-- <li class="nav-item">
