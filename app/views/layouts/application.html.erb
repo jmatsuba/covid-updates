@@ -24,6 +24,17 @@
   </head>
 
   <body>
+    <% if notice %>
+      <div class="alert alert-success app__header-alert" role="alert">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if alert %>
+      <div class="alert alert-danger app__header-alert" role="alert">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
