@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :admin do
+    root to: 'base#admin_home'
     resources :resources
     resources :categories
   end
