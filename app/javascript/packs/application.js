@@ -24,3 +24,6 @@ require("jquery")
 import './bootstrap.bundle.js'
 
 
+
+require("trix")
+require("@rails/actiontext")
