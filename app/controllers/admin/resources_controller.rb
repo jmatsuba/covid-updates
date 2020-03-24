@@ -1,28 +1,20 @@
 class Admin::ResourcesController < ApplicationController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
-  # GET /resources
-  # GET /resources.json
   def index
     @resources = Resource.all
   end
 
-  # GET /resources/1
-  # GET /resources/1.json
   def show
   end
 
-  # GET /resources/new
   def new
     @resource = Resource.new
   end
 
-  # GET /resources/1/edit
   def edit
   end
 
-  # POST /resources
-  # POST /resources.json
   def create
     @resource = Resource.new(resource_params)
 
@@ -37,8 +29,6 @@ class Admin::ResourcesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /resources/1
-  # PATCH/PUT /resources/1.json
   def update
     respond_to do |format|
       if @resource.update(resource_params)
@@ -51,8 +41,6 @@ class Admin::ResourcesController < ApplicationController
     end
   end
 
-  # DELETE /resources/1
-  # DELETE /resources/1.json
   def destroy
     @resource.destroy
     respond_to do |format|
@@ -62,12 +50,10 @@ class Admin::ResourcesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_resource
       @resource = Resource.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def resource_params
       params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id)
     end
