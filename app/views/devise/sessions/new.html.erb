@@ -8,6 +8,19 @@
         <div class="card-body text-white bg-dark">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+            <div class="field form-group row">
+              <%= f.label :email, class: "col-md-4 col-form-label text-md-right"%><br />
+              <div class="col-md-6">
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+            </div>
+
+            <div class="field form-group row">
+              <%= f.label :password, class: "col-md-4 col-form-label text-md-right"%><br />
+              <div class="col-md-6">
+                <%= f.password_field :password, autocomplete: "current-password" %>
+              </div>
+            </div>
           <% end %>
 
           
