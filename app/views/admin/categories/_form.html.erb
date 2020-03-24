@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="card login-card">
         <div class="card-header text-white bg-secondary">
-          <h3>New Category</h3>
+          <h3><%= mode == "NEW" ? "New Category" : "Edit Category"%></h3>
         </div>
         <div class="card-body text-white bg-dark">
           <%= form_for [:admin, @category] do |form| %>
@@ -40,11 +40,14 @@
             <div class="form-group row mb-0">
               <div class="col-md-8 offset-md-4">
                 <div class="actions">
-                  <%= form.submit "Create Category", class: "btn btn-primary mb-3"%>
+                  <%= form.submit "#{mode == "NEW" ? "Create" : "Update"} Category", class: "btn btn-primary mb-3"%>
                 </div>
               </div>
-              <div class="col-md-8 offset-md-2">
-                <h5><%= link_to 'Back', admin_categories_path %></h5>
+              <div class="col-md-8 offset-md-<%= mode == "EDIT" ? "0" : "1"%> d-flex">
+                <h5><%= link_to 'Back', admin_categories_path, class: "pr-3" %></h5>
+              <% if mode == "EDIT" %>
+                <h5><%= link_to 'Show', admin_category_path(@category) %></h5>
+              <% end %>
               </div>
             </div>
             
