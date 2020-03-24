@@ -18,6 +18,11 @@ bc = Category.create!(name: "British Columbia", kind: 'daily_update', priority: 
 on = Category.create!(name: "Ontario", kind: 'daily_update', priority: 1, slug: 'ontario')
 
 
+about = Category.create!(name: "About", kind: 'general', priority: 1, slug: 'about')
+spread = Category.create!(name: "Spread", kind: 'general', priority: 2, slug: 'spread' )
+tools = Category.create!(name: "Tools", kind: 'general', priority: 3, slug: 'tools' )
+other = Category.create!(name: "Other", kind: 'general', priority: 3, slug: 'other' )
+
 ##
 # Resources
 #
