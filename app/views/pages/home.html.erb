@@ -69,284 +69,68 @@
       <h2>Alberta</h2>
     </div>
 
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5eNZMiFX9Pc"
-            allowfullscreen></iframe>
-        </div>
+    <% Category.find_by(slug:'alberta').resources.by_date.first(3).each do |resource| %>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="embed-responsive embed-responsive-16by9 card-img-top">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
+              allowfullscreen></iframe>
+          </div>
 
-        <div class="card-body">
-          <h4 class="card-title">March 23, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 301 <br>
-            <strong>New Cases:</strong> 42 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/5eNZMiFX9Pc" class="btn btn-primary" target='_blank'>Watch</a>
+          <div class="card-body">
+            <h4 class="card-title"><%= resource.name %></h4>
+            <p class="card-text"><%= sanitize resource.description %></p>
+          </div>
+          <div class="card-footer">
+            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/sV5QnlvFfXY"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 21, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 226 <br>
-            <strong>New Cases:</strong> 31 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/sV5QnlvFfXY" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/s6SkgYaQkOc"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 20, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 195 <br>
-            <strong>New Cases:</strong> 49 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/s6SkgYaQkOc" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-
-    <% if false %>
-    <!-- OLD -->
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/alzOXftShR0"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 19, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 146 <br>
-            <strong>New Cases:</strong> 27 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/alzOXftShR0" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
     <% end %>
 
     <div class="col-md-12">
       <h2>British Columbia</h2>
     </div>
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tSb19Trz-uQ"
-            allowfullscreen></iframe>
-        </div>
+    <% Category.find_by(slug:'british-columbia').resources.by_date.first(3).each do |resource| %>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="embed-responsive embed-responsive-16by9 card-img-top">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
+              allowfullscreen></iframe>
+          </div>
 
-        <div class="card-body">
-          <h4 class="card-title">March 23, 2020</h4>
-          <p class="card-text">
-            Note: First 15 seconds has no audio<br><br>
-            <strong>Total Cases:</strong> 472 <br>
-            <strong>New Cases (48 hrs):</strong> 48 <br>
-            <strong>Vancouver Coastal Health:</strong> 248 <br>
-            <strong>Fraser Health:</strong> 150 <br>
-            <strong>Vancouver Island:</strong> 39 <br>
-            <strong>Interior Health:</strong> 30 <br>
-            <strong>Northern Health:</strong> 5 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/tSb19Trz-uQ" class="btn btn-primary" target='_blank'>Watch</a>
+          <div class="card-body">
+            <h4 class="card-title"><%= resource.name %></h4>
+            <p class="card-text"><%= sanitize resource.description %></p>
+          </div>
+          <div class="card-footer">
+            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lJTIFJFFJpw"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 21, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 424 <br>
-            <strong>New Cases:</strong> 74 <br>
-            <strong>Vancouver Coastal Health:</strong> 230 <br>
-            <strong>Fraser Health:</strong> 126 <br>
-            <strong>Vancouver Island:</strong> 37 <br>
-            <strong>Interior Health:</strong> 27 <br>
-            <strong>Northern Health:</strong> 4 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/lJTIFJFFJpw" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/o6eVdtjWq8Y"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 20, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 348 <br>
-            <strong>New Cases:</strong> 77 <br>
-            <strong>Vancouver Coastal Health:</strong> 200 <br>
-            <strong>Fraser Health:</strong> 95 <br>
-            <strong>Vancouver Island:</strong> 30 <br>
-            <strong>Interior Health:</strong> 19 <br>
-            <strong>Northern Health:</strong> 4 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/o6eVdtjWq8Y" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <% if false %>
-    <!-- OLD -->
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/grnm1mR-6Pk"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 19, 2020</h4>
-          <p class="card-text">
-            <strong>Total Cases:</strong> 271 <br>
-            <strong>New Cases:</strong> 40 <br>
-            <strong>Vancouver Coastal Health:</strong> 152 <br>
-            <strong>Fraser Health:</strong> 81 <br>
-            <strong>Vancouver Island:</strong> 22 <br>
-            <strong>Interior Health:</strong> 12 <br>
-            <strong>Northern Health:</strong> 4 <br>
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/grnm1mR-6Pk" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
     <% end %>
 
     <div class="col-md-12">
       <h2>Ontario</h2>
     </div>
+    <% Category.find_by(slug:'ontario').resources.by_date.first(3).each do |resource| %>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="embed-responsive embed-responsive-16by9 card-img-top">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
+              allowfullscreen></iframe>
+          </div>
 
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/g_fNMmWpdlM?start=2521"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 23, 2020</h4>
-          <p class="card-text">
-
-
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/g_fNMmWpdlM?start=2521" class="btn btn-primary" target='_blank'>Watch</a>
+          <div class="card-body">
+            <h4 class="card-title"><%= resource.name %></h4>
+            <p class="card-text"><%= sanitize resource.description %></p>
+          </div>
+          <div class="card-footer">
+            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ARBgnsoRQNY"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 21, 2020</h4>
-          <p class="card-text">
-
-
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/ARBgnsoRQNY" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/10b5fzKqfdM"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 20, 2020</h4>
-          <p class="card-text">
-
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/10b5fzKqfdM" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-
-    <% if false %>
-    <!-- OLD -->
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NdHmGP96ow4"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 19, 2020</h4>
-          <p class="card-text">
-
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/NdHmGP96ow4" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
     <% end %>
-
-
 
   </div>
   <!-- /.row -->
