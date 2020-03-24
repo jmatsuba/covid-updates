@@ -1,48 +1,70 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card login-card">
+        <div class="card-header text-white bg-secondary">
+          <h3>New Resource</h3>
+        </div>
+        <div class="card-body text-white bg-dark">
+          <%= form_for [:admin, @resource] do |form| %>
+            <% if resource.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
 
-<%= form_for [:admin, @resource] do |form| %>
-  <% if resource.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
+                <ul>
+                  <% resource.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
 
-      <ul>
-        <% resource.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+            <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+
+            <% [:name, :url, :kind, :description, :video_id].each do |column| %>
+              <div class="form-group row">
+                <%= form.label column, class: "col-md-4 col-form-label text-md-right" %>
+                <div class="col-md-6">
+                  <%= form.text_field column %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="form-group row">
+              <%= form.label :start_time, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.number_field :start_time %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :priority, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.number_field :priority %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :date, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.datetime_select :date, :order => [:month, :day, :year, :hour, :minute] %>
+              </div>
+            </div>
+
+            <div class="form-group row mb-0">
+              <div class="col-md-8 offset-md-4">
+                <div class="actions">
+                  <%= form.submit "Create Resource", class: "btn btn-primary mb-3"%>
+                </div>
+              </div>
+              <div class="col-md-8 offset-md-2">
+                <h5><%= link_to 'Back', admin_resources_path %></h5>
+              </div>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.text_field :kind %>
-  </div>
-
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.number_field :priority %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
