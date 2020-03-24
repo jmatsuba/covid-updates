@@ -56,7 +56,7 @@ private
   end
 
     def resource_params
-      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id)
+      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :date, :description, :video_id, :start_time)
     end
 
 end
