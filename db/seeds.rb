@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# NOTE, THESE SHOULD _NOT_ BE COMMITTED.
+User.destroy_all
+Category.destroy_all
+
 print 'Seeding db...'
 ##
 # Users
