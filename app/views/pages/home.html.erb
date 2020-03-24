@@ -45,24 +45,7 @@
     </div>
 
     <% Category.find_by(slug:'canada').resources.by_date.first(3).each do |resource| %>
-
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="embed-responsive embed-responsive-16by9 card-img-top">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
-              allowfullscreen></iframe>
-          </div>
-
-          <div class="card-body">
-            <h4 class="card-title"><%= resource.name %></h4>
-            <p class="card-text"><%= resource.description %></p>
-          </div>
-          <div class="card-footer">
-            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
-          </div>
-        </div>
-      </div>
-
+      <%= render partial: 'resource-card', locals: { resource: resource } %>
     <% end %>
 
     <div class="col-md-12">
@@ -70,66 +53,21 @@
     </div>
 
     <% Category.find_by(slug:'alberta').resources.by_date.first(3).each do |resource| %>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="embed-responsive embed-responsive-16by9 card-img-top">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
-              allowfullscreen></iframe>
-          </div>
-
-          <div class="card-body">
-            <h4 class="card-title"><%= resource.name %></h4>
-            <p class="card-text"><%= sanitize resource.description %></p>
-          </div>
-          <div class="card-footer">
-            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'resource-card', locals: { resource: resource } %>
     <% end %>
 
     <div class="col-md-12">
       <h2>British Columbia</h2>
     </div>
     <% Category.find_by(slug:'british-columbia').resources.by_date.first(3).each do |resource| %>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="embed-responsive embed-responsive-16by9 card-img-top">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
-              allowfullscreen></iframe>
-          </div>
-
-          <div class="card-body">
-            <h4 class="card-title"><%= resource.name %></h4>
-            <p class="card-text"><%= sanitize resource.description %></p>
-          </div>
-          <div class="card-footer">
-            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'resource-card', locals: { resource: resource } %>
     <% end %>
 
     <div class="col-md-12">
       <h2>Ontario</h2>
     </div>
     <% Category.find_by(slug:'ontario').resources.by_date.first(3).each do |resource| %>
-      <div class="col-md-4 mb-5">
-        <div class="card h-100">
-          <div class="embed-responsive embed-responsive-16by9 card-img-top">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
-              allowfullscreen></iframe>
-          </div>
-
-          <div class="card-body">
-            <h4 class="card-title"><%= resource.name %></h4>
-            <p class="card-text"><%= sanitize resource.description %></p>
-          </div>
-          <div class="card-footer">
-            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
-          </div>
-        </div>
-      </div>
+      <%= render partial: 'resource-card', locals: { resource: resource } %>
     <% end %>
 
   </div>
