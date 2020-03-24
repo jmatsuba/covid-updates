@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root to: 'pages#home'
-  get "resources", to: "pages#resources"
+  get 'resources', to: 'pages#resources'
 end
