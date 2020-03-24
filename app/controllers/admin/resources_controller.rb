@@ -19,6 +19,8 @@ class Admin::ResourcesController < Admin::BaseController
   def create
     @resource = Resource.new(resource_params)
 
+    puts @resource
+
     respond_to do |format|
       if @resource.save
         format.html { redirect_to [:admin, @resource], notice: "Resource was successfully created." }
@@ -56,7 +58,7 @@ private
   end
 
     def resource_params
-      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id)
+      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :description, :date, :start_time, :video_id)
     end
 
 end
