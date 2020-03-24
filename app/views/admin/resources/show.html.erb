@@ -22,12 +22,34 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @resource.category_id %>
+  <%= @resource.category.name %>
 </p>
 
 <p>
   <strong>User:</strong>
   <%= @resource.user_id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @resource.date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <hr>
+  <%= sanitize @resource.description %>
+  <hr>
+</p>
+
+<p>
+  <strong>Video ID:</strong>
+  <%= @resource.video_id %>
+</p>
+
+<p>
+  <strong>Start Time:</strong>
+  <%= @resource.start_time %>
 </p>
 
 <%= link_to 'Edit', edit_admin_resource_path(@resource) %> |
