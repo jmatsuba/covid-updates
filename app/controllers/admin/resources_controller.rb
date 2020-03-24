@@ -19,8 +19,6 @@ class Admin::ResourcesController < Admin::BaseController
   def create
     @resource = Resource.new(resource_params)
 
-    puts @resource
-
     respond_to do |format|
       if @resource.save
         format.html { redirect_to [:admin, @resource], notice: "Resource was successfully created." }
