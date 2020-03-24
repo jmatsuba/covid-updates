@@ -1,37 +1,57 @@
-<%= form_for [:admin, @category] do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card login-card">
+        <div class="card-header text-white bg-secondary">
+          <h3>New Category</h3>
+        </div>
+        <div class="card-body text-white bg-dark">
+          <%= form_for [:admin, @category] do |form| %>
+            <% if category.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+                <ul>
+                  <% category.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+
+            <% [:name, :kind, :slug].each do |column| %>
+              <div class="form-group row">
+                <%= form.label column, class: "col-md-4 col-form-label text-md-right" %>
+                <div class="col-md-6">
+                  <%= form.text_field column %>
+                </div>
+              </div>
+            <% end %>
+
+            <div class="form-group row">
+              <%= form.label :priority, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.number_field :priority %>
+              </div>
+            </div>
+
+            <div class="form-group row mb-0">
+              <div class="col-md-8 offset-md-4">
+                <div class="actions">
+                  <%= form.submit "Create Category", class: "btn btn-primary mb-3"%>
+                </div>
+              </div>
+              <div class="col-md-8 offset-md-2">
+                <h5><%= link_to 'Back', admin_categories_path %></h5>
+              </div>
+            </div>
+            
+          <% end %>
+        </div>
+      </div>
     </div>
-  <% end %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :kind %>
-    <%= form.text_field :kind %>
-  </div>
-
-  <div class="field">
-    <%= form.label :slug %>
-    <%= form.text_field :slug %>
-  </div>
-
-  <div class="field">
-    <%= form.label :priority %>
-    <%= form.number_field :priority %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
