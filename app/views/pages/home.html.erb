@@ -16,7 +16,7 @@
 
 <% if true %>
 <!-- Navigation -->
-<%= render partial: 'navbar', locals: { active: 'PHB' } %> 
+<%= render partial: 'navbar', locals: { active: 'PHB' } %>
 <% end %>
 
 <!-- Header -->
@@ -38,121 +38,32 @@
 <!-- Page Content -->
 <div class="container">
 
-
   <div class="row">
-
-
 
     <div class="col-md-12">
       <h2>Canada</h2>
     </div>
 
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/hcPXrMpROsg?t=915"
-            allowfullscreen></iframe>
-        </div>
+    <% Category.find_by(slug:'canada').resources.last(3).each do |resource| %>
 
-        <div class="card-body">
-          <h4 class="card-title">March 23, 2020</h4>
-          <p class="card-text">
-            Prime Minister Justin Trudeau warned of potential COVID-19 enforcement measures as individuals continue to
-            engage in "extremely concerning" activities.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/hcPXrMpROsg?t=915" class="btn btn-primary" target='_blank'>Watch</a>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <div class="embed-responsive embed-responsive-16by9 card-img-top">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>"
+              allowfullscreen></iframe>
+          </div>
+
+          <div class="card-body">
+            <h4 class="card-title"><%= resource.name %></h4>
+            <p class="card-text"><%= resource.description %></p>
+          </div>
+          <div class="card-footer">
+            <a href="https://youtu.be/<%= resource.video_id %>?t=<%= resource.start_time %>" class="btn btn-primary" target='_blank'>Watch</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9QoBoeC6SAg?start=921"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 22, 2020</h4>
-          <p class="card-text">
-            Prime Minister Justin Trudeau says the $82-billion financial package announced earlier this week is just 'a
-            very first step' as health-care officials warn social distancing could last months.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/9QoBoeC6SAg?start=921" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/L8zLeb2t4v8"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 21, 2020</h4>
-          <p class="card-text">
-            Prime Minister Justin Trudeau says the government is doing all it can to help bring home Canadians, but
-            conceded it won't be able to help everyone.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/L8zLeb2t4v8" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-
-    <% if false %>
-    <!-- OLD  -->
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/om2fbGu8giw?start=887"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 20, 2020</h4>
-          <p class="card-text">
-            Canada will turn back asylum-seekers attempting to enter the country outside of official border points,
-            announced Prime Minister Justin Trudeau. It part of a set of extreme new measures meant to stop the spread
-            of COVID-19.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/om2fbGu8giw?start=887" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-5">
-      <div class="card h-100">
-        <div class="embed-responsive embed-responsive-16by9 card-img-top">
-          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0k8vvTTy5UA?start=45"
-            allowfullscreen></iframe>
-        </div>
-
-        <div class="card-body">
-          <h4 class="card-title">March 19, 2020</h4>
-          <p class="card-text">
-            Prime Minister Justin Trudeau offered more assurances that the federal government would help all Canadians
-            through the COVID-19 crisis — but warned that "extraordinary" measures to contain the virus could be in
-            place for weeks or months.
-          </p>
-        </div>
-        <div class="card-footer">
-          <a href="https://youtu.be/0k8vvTTy5UA?start=45" class="btn btn-primary" target='_blank'>Watch</a>
-        </div>
-      </div>
-    </div>
     <% end %>
-
 
     <div class="col-md-12">
       <h2>Alberta</h2>
