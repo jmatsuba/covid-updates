@@ -15,12 +15,12 @@ users = User.create!([
 national = Category.create!(name: 'National', kind: 'daily_update', priority: 1, slug: 'canada')
 ab = Category.create!(name: 'Alberta', kind: 'daily_update', priority: 2, slug: 'alberta')
 bc = Category.create!(name: 'British Columbia', kind: 'daily_update', priority: 3, slug: 'british-columbia')
-on = Category.create!(name: 'Ontario', kind: 'daily_update', priority: 1, slug: 'ontario')
+on = Category.create!(name: 'Ontario', kind: 'daily_update', priority: 4, slug: 'ontario')
 
 about = Category.create!(name: 'About', kind: 'general', priority: 1, slug: 'about')
 spread = Category.create!(name: 'Spread', kind: 'general', priority: 2, slug: 'spread')
 tools = Category.create!(name: 'Tools', kind: 'general', priority: 3, slug: 'tools')
-other = Category.create!(name: 'Other', kind: 'general', priority: 3, slug: 'other')
+other = Category.create!(name: 'Other', kind: 'general', priority: 4, slug: 'other')
 
 ##
 # Resources

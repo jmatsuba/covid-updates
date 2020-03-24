@@ -39,37 +39,15 @@
 <div class="container">
 
   <div class="row">
+    <% Category.where(kind: 'daily_update').order(:priority).each do |category| %>
+      <div class="col-md-12">
+        <h2><%= category.name %></h2>
+      </div>
 
-    <div class="col-md-12">
-      <h2>Canada</h2>
-    </div>
-
-    <% Category.find_by(slug:'canada').resources.by_date.first(3).each do |resource| %>
-      <%= render partial: 'resource-card', locals: { resource: resource } %>
+      <% category.resources.by_date.first(3).each do |resource| %>
+        <%= render partial: 'resource-card', locals: { resource: resource } %>
+      <% end %>
     <% end %>
-
-    <div class="col-md-12">
-      <h2>Alberta</h2>
-    </div>
-
-    <% Category.find_by(slug:'alberta').resources.by_date.first(3).each do |resource| %>
-      <%= render partial: 'resource-card', locals: { resource: resource } %>
-    <% end %>
-
-    <div class="col-md-12">
-      <h2>British Columbia</h2>
-    </div>
-    <% Category.find_by(slug:'british-columbia').resources.by_date.first(3).each do |resource| %>
-      <%= render partial: 'resource-card', locals: { resource: resource } %>
-    <% end %>
-
-    <div class="col-md-12">
-      <h2>Ontario</h2>
-    </div>
-    <% Category.find_by(slug:'ontario').resources.by_date.first(3).each do |resource| %>
-      <%= render partial: 'resource-card', locals: { resource: resource } %>
-    <% end %>
-
   </div>
   <!-- /.row -->
 
