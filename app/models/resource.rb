@@ -4,4 +4,5 @@ class Resource < ApplicationRecord
   belongs_to :user, optional: true
 
   scope :by_date, -> { order(date: :desc) }
+
 end
