@@ -56,7 +56,7 @@ private
   end
 
     def category_params
-      params.require(:category).permit(:name)
+      params.require(:category).permit(:name, :kind, :slug, :priority)
     end
 
 end
