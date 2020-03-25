@@ -19,16 +19,26 @@
               </div>
             <% end %>
 
-            <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
-
-            <% [:name, :kind, :slug].each do |attribute| %>
-              <div class="form-group row">
-                <%= form.label attribute, class: "col-md-4 col-form-label text-md-right" %>
-                <div class="col-md-6">
-                  <%= form.text_field attribute %>
-                </div>
+            <div class="form-group row">
+              <%= form.label :name, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :name %>
               </div>
-            <% end %>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :kind, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :kind %>
+              </div>
+            </div>
+            
+            <div class="form-group row">
+              <%= form.label :slug, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :slug %>
+              </div>
+            </div>
 
             <div class="form-group row">
               <%= form.label :priority, class: "col-md-4 col-form-label text-md-right" %>
