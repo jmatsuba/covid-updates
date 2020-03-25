@@ -29,7 +29,7 @@
             <div class="form-group row">
               <%= form.label :kind, class: "col-md-4 col-form-label text-md-right" %>
               <div class="col-md-6">
-                <%= form.text_field :kind %>
+                <%= form.select :kind, ['general', 'daily_update'] %>
               </div>
             </div>
 
