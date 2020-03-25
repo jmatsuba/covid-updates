@@ -9,13 +9,11 @@
         </div>
         <div class="card-body text-white bg-dark pt-4">
         
-          <% ['name', 'url', 'kind', 'video_id', 'start_time', 'date', 'category', 'description'].each do |attribute| %>
+          <% ['name', 'url', 'kind', 'video_id', 'start_time', 'date', 'category', 'rich_description'].each do |attribute| %>
             <div class="row mb-3">
               <h6 class="col-md-4 text-md-right"><strong><%= attribute.titleize %>:</strong></h6>
               <div class="col-md-6">
-                <% if attribute == 'description' %>
-                  <%= sanitize @resource[attribute] %>
-                <% elsif attribute == 'category'%>
+                <% if attribute == 'category'%>
                   <%= @resource.category.name %>
                 <% else %>
                   <%= @resource[attribute] %>

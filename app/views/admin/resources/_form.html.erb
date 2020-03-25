@@ -21,7 +21,8 @@
 
             <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
 
-            <% [:name, :url, :kind, :description, :video_id].each do |attribute| %>
+
+            <% [:name, :url, :kind, :video_id].each do |attribute| %>
               <div class="form-group row">
                 <%= form.label attribute, class: "col-md-4 col-form-label text-md-right" %>
                 <div class="col-md-6">
@@ -31,7 +32,7 @@
             <% end %>
 
             <div class="form-group row">
-              <%= form.label :start_time, class: "col-md-4 col-form-label text-md-right" %>
+              <%= form.label :start_time, "Start Time (sec)", class: "col-md-4 col-form-label text-md-right" %>
               <div class="col-md-6">
                 <%= form.number_field :start_time %>
               </div>
@@ -58,8 +59,15 @@
               </div>
             </div>
 
+            <div class="form-group row mb-4">
+              <%= form.label :rich_description, "Description", class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-12">
+                <%= form.rich_text_area :rich_description %>
+              </div>
+            </div>
+
             <div class="form-group row mb-0">
-              <div class="col-md-8 offset-md-4">
+              <div class="col-md-8">
                 <div class="actions">
                   <%= form.submit "#{mode == "NEW" ? "Create" : "Update"} Resource", class: "btn btn-primary mb-3"%>
                 </div>
@@ -71,7 +79,6 @@
               <% end %>
               </div>
             </div>
-            
           <% end %>
         </div>
       </div>
