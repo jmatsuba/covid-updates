@@ -33,7 +33,7 @@ class Admin::ResourcesController < Admin::BaseController
   def update
     respond_to do |format|
       if @resource.update(resource_params)
-        format.html { redirect_to [:admin, @category], notice: "Resource was successfully updated." }
+        format.html { redirect_to [:admin, @resource], notice: "Resource was successfully updated." }
         format.json { render :show, status: :ok, location: @resource }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ private
   end
 
     def resource_params
-      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :date, :description, :video_id, :start_time)
+      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :date, :description, :video_id, :start_time, :rich_description)
     end
 
 end
