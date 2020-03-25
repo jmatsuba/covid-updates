@@ -6,4 +6,6 @@ class Resource < ApplicationRecord
 
   scope :by_date, -> { order(date: :desc) }
 
+  paginates_per 50
+
 end

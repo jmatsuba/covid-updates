@@ -3,7 +3,7 @@ class Admin::ResourcesController < Admin::BaseController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all.order(:category_id).order(date: :desc)
+    @resources = Resource.all.order(:category_id).order(date: :desc).page(params[:page])
   end
 
   def show
