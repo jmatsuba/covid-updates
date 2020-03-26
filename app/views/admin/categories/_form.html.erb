@@ -54,13 +54,13 @@
                 </div>
               </div>
               <div class="col-md-8 offset-md-<%= mode == "NEW" ? "1" : "0" %> d-flex">
-                <h5><%= link_to 'Back', admin_categories_path, class: "pr-3" %></h5>
+                <h5><%= link_to 'Back to Index', admin_categories_path, class: "pr-3" %></h5>
               <% if mode == "EDIT" %>
                 <h5><%= link_to 'Show', admin_category_path(@category) %></h5>
               <% end %>
               </div>
             </div>
-            
+
           <% end %>
         </div>
       </div>
