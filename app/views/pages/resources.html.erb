@@ -45,7 +45,7 @@
     </div>
 
     <% Category.where(kind: 'general').order(:priority).each do |category| %>
-      <% category.resources.each do |resource| %>
+      <% category.resources.where(status: 'approved').each do |resource| %>
         <%= render partial: 'resource-card', locals: { resource: resource } %>
       <% end %>
 
