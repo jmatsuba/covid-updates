@@ -3,7 +3,7 @@
     <div class="col-md-8">
       <div class="card login-card">
         <div class="card-header text-white bg-secondary">
-          <h3><%= title %></h3>
+          <h3><%= mode == "NEW" ? "New Resource" : "Edit Resource" %></h3>
         </div>
         <div class="card-body text-white bg-dark">
           <%= form_for [:admin, @resource] do |form| %>
@@ -21,14 +21,22 @@
 
             <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
 
-            <% [:name, :url, :kind, :video_id].each do |column| %>
+
+            <% [:name, :url, :video_id].each do |attribute| %>
               <div class="form-group row">
-                <%= form.label column, class: "col-md-4 col-form-label text-md-right" %>
+                <%= form.label attribute, class: "col-md-4 col-form-label text-md-right" %>
                 <div class="col-md-6">
-                  <%= form.text_field column %>
+                  <%= form.text_field attribute %>
                 </div>
               </div>
             <% end %>
+
+              <div class="form-group row">
+                <%= form.label :kind, class: "col-md-4 col-form-label text-md-right" %>
+                <div class="col-md-6">
+                  <%= form.select :kind, ['youtube_video', 'article', 'website'] %>
+                </div>
+              </div>
 
             <div class="form-group row">
               <%= form.label :start_time, "Start Time (sec)", class: "col-md-4 col-form-label text-md-right" %>
@@ -68,9 +76,14 @@
             <div class="form-group row mb-0">
               <div class="col-md-8">
                 <div class="actions">
-                  <%= form.submit nil, class: "btn btn-success mb-3"%>
-                  <%= link_to 'Back', admin_resources_path,  class: "btn btn-light mb-3" %>
+                  <%= form.submit nil, class: "btn btn-primary mb-3"%>
                 </div>
+              </div>
+              <div class="col-md-8 offset-md-<%= mode == "NEW" ? "1" : "0" %> d-flex">
+                <h5><%= link_to 'Back', admin_resources_path, class: "pr-3" %></h5>
+              <% if mode == "EDIT" %>
+                <h5><%= link_to 'Show', admin_resource_path(@resource) %></h5>
+              <% end %>
               </div>
             </div>
           <% end %>
