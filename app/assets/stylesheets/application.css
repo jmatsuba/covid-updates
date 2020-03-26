@@ -14,6 +14,10 @@
  *= require_self
  */
 
- .app__header-alert {
-    margin: 20px;
- }
+.app__header-alert {
+   margin: 20px;
+}
+
+body {
+   padding-top: 56px;
+}

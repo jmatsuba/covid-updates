@@ -1,6 +1,6 @@
 class Resource < ApplicationRecord
 
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :user, optional: true
   has_rich_text :rich_description
 
