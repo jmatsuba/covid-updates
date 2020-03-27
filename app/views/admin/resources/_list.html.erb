@@ -17,7 +17,7 @@
         <tbody>
           <% @resources.each do |resource| %>
             <tr>
-              <td><%= resource.category.name %></td>
+              <td><%= resource.category ? resource.category.name : 'Uncategorized' %></td>
               <td><%= resource.name %></td>
               <td><%= link_to('Link', resource.url, target: '_blank') if resource.url.present? %></td>
               <td><%= resource.kind %></td>
