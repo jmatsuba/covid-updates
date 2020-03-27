@@ -1,6 +1,7 @@
 <div class="container">
-  <div class="col-md-12">
+  <div class="ml-2">
     <div id="filterrific_results">
+
       <table class="table">
         <thead>
           <tr>
@@ -9,26 +10,26 @@
             <th scope="col">Url</th>
             <th scope="col">Kind</th>
             <th scope="col">Priority</th>
-
             <th colspan="3"></th>
-
           </tr>
         </thead>
+
         <tbody>
           <% @resources.each do |resource| %>
             <tr>
               <td><%= resource.category.name %></td>
               <td><%= resource.name %></td>
-              <td><%= link_to('link', resource.url, target: '_blank') if resource.url.present? %></td>
+              <td><%= link_to('Link', resource.url, target: '_blank') if resource.url.present? %></td>
               <td><%= resource.kind %></td>
               <td><%= resource.priority %></td>
-              <td><%= link_to 'Show', admin_resource_path(resource) %></td>
-              <td><%= link_to 'Edit', edit_admin_resource_path(resource) %></td>
-              <td><%= link_to 'Destroy', admin_resource_path(resource), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Show', admin_resource_path(resource), class: 'btn-sm btn-primary' %></td>
+              <td><%= link_to 'Edit', edit_admin_resource_path(resource), class: 'btn-sm btn-secondary' %></td>
+              <td><%= link_to 'Destroy', admin_resource_path(resource), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-sm btn-danger' %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
+
     </div>
 
     <%= paginate @resources %>
