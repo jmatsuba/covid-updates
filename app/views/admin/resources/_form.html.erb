@@ -7,41 +7,65 @@
         </div>
         <div class="card-body text-white bg-dark">
           <%= form_for [:admin, @resource] do |form| %>
-            <% if resource.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
-
-                <ul>
-                  <% resource.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-            <% end %>
-
             <%= form.text_field :user_id, type: "hidden", value: current_user.id %>
+            <% if resource.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(resource.errors.count, "error") %> prohibited this resource from being saved:</h2>
 
-
-            <% [:name, :url, :video_id].each do |attribute| %>
-              <div class="form-group row">
-                <%= form.label attribute, class: "col-md-4 col-form-label text-md-right" %>
-                <div class="col-md-6">
-                  <%= form.text_field attribute %>
-                </div>
-              </div>
+              <ul>
+                <% resource.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
             <% end %>
 
-              <div class="form-group row">
-                <%= form.label :kind, class: "col-md-4 col-form-label text-md-right" %>
-                <div class="col-md-6">
-                  <%= form.select :kind, ['youtube_video', 'article', 'website'] %>
-                </div>
+            <div class="form-group row mb-4">
+              <%= form.label :category_id, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.collection_select(:category_id, Category.all, :id, :name) %>
               </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :kind, class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.select :kind, ['youtube_video', 'article', 'website'] %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :name,"Display Name for Website", class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :name %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :video_id, "Youtube Video ID", class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :video_id %>
+              </div>
+            </div>
 
             <div class="form-group row">
               <%= form.label :start_time, "Start Time (sec)", class: "col-md-4 col-form-label text-md-right" %>
               <div class="col-md-6">
                 <%= form.number_field :start_time %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :url, "URL (not needed for youtube videos)", class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :url %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <%= form.label :thumbnail, "Thumbnail URL (not needed for youtube videos)", class: "col-md-4 col-form-label text-md-right" %>
+              <div class="col-md-6">
+                <%= form.text_field :thumbnail %>
               </div>
             </div>
 
@@ -60,13 +84,6 @@
             </div>
 
             <div class="form-group row mb-4">
-              <%= form.label :category_id, class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
-                <%= form.collection_select(:category_id, Category.all, :id, :name) %>
-              </div>
-            </div>
-
-            <div class="form-group row mb-4">
               <%= form.label :rich_description, "Description", class: "col-md-4 col-form-label text-md-right" %>
               <div class="col-md-12">
                 <%= form.rich_text_area :rich_description %>
@@ -81,9 +98,9 @@
               </div>
               <div class="col-md-8 offset-md-<%= mode == "NEW" ? "1" : "0" %> d-flex">
                 <h5><%= link_to 'Back', admin_resources_path, class: "pr-3" %></h5>
-              <% if mode == "EDIT" %>
+                <% if mode == "EDIT" %>
                 <h5><%= link_to 'Show', admin_resource_path(@resource) %></h5>
-              <% end %>
+                <% end %>
               </div>
             </div>
           <% end %>
