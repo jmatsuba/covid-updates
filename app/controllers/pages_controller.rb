@@ -6,4 +6,8 @@ class PagesController < ApplicationController
   def resources
   end
 
+  def suggest_resource
+    @resource = Resource.new
+  end
+
 end
