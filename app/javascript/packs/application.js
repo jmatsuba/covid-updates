@@ -24,6 +24,9 @@ require("jquery")
 import './bootstrap.bundle.js'
 
 
+//= require filterrific/filterrific-jquery
+
+
 
 require("trix")
 require("@rails/actiontext")
