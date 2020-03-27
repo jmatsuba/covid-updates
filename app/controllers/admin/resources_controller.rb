@@ -3,7 +3,27 @@ class Admin::ResourcesController < Admin::BaseController
   before_action :set_resource, only: [:show, :edit, :update, :destroy]
 
   def index
-    @resources = Resource.all.order(:category_id).order(date: :desc).page(params[:page])
+    @filterrific = initialize_filterrific(
+      Resource,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Resource.options_for_sorted_by,
+        with_category_id: Category.options_for_select
+      },     
+      persistence_id: "shared_key",
+      default_filter_params: {},
+      available_filters: [ :sorted_by, :search_query, :with_category_id, :with_resources_since ],
+      sanitize_params: true
+    ) || return
+
+    # .includes(:category) to avoid N+1 issue
+    @resources = @filterrific.find.includes(:category).page(params[:page])
+
+    # Respond to html for initial page load and to js for AJAX filter updates.
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
