@@ -10,10 +10,12 @@
 </div>
 
   <%= form_for_filterrific @filterrific do |f| %>
-    <div class="container d-flex flex-column">
-      <div class="d-flex flex-row-reverse mb-2">
-        <%= link_to('Reset Filters', reset_filterrific_url, class: "btn btn-primary ml-3 align-bottom") %>
+    <div class="container d-flex flex-column mb-4">
+    
+      <div class="d-flex flex-row-reverse">
+        <%= link_to('Reset Filters', reset_filterrific_url, class: "btn btn-info mb-3 align-bottom") %>
       </div>
+
       <main class="card card-body bg-light d-flex flex-row h-25 mx-auto">
         <div class="col-md-3">
           <div class="form-group">
@@ -24,6 +26,7 @@
             ) %>
           </div>
         </div>
+
         <div class="col-md-3">
           <div class="form-group">
             <label class="font-weight-bold">Category:</label>
@@ -34,23 +37,25 @@
             ) %>
           </div>
         </div>
+
         <div class="col-md-3">
           <div class="form-group">
             <label class="font-weight-bold">Submitted After:</label>
             <%= f.date_field :with_resources_since, class: 'js-datepicker form-control' %>
           </div>
         </div>
+
         <div class="col-md-3">
           <div class="form-group">
             <label class="font-weight-bold">Sorted By:</label>
             <%= f.select :sorted_by, @filterrific.select_options[:sorted_by], class: 'form-control' %>
           </div>
         </div>
-        
-        <%= render_filterrific_spinner %>
 
+        <%= render_filterrific_spinner %>
       </main>
-  </div>
+      
+    </div>
   <% end %>
 
 
