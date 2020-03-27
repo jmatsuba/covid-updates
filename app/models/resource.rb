@@ -29,14 +29,12 @@ class Resource < ApplicationRecord
 
     where(
       terms.map { |_term|
-        # feel free to append more LIKE queries, but remember to increase num_or_condsas well
+        # feel free to append more LIKE queries, but remember to increase num_or_conds as well
         "(LOWER(resources.name) LIKE ? OR LOWER(resources.kind) LIKE ?)"
         }.join(" AND "),
         *terms.map { |e| [e] * num_or_conds }.flatten,
       )
-    }
-    # LOWER(categories.name) LIKE ?
-  
+    }  
 
   scope :sorted_by, ->(sort_option) {
 
