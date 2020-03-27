@@ -1,0 +1,33 @@
+<% content_for :head do %>
+<title>Suggest a Science-Based Resource for COVID-19 (Novel Coronavirus)</title>
+<meta property="og:url" content="https://www.covid-updates.ca/suggest-resource" />
+<meta property="og:title" content="Suggest a Science-Based Resource for COVID-19 (Novel Coronavirus)" />
+<meta property="og:description"
+  content="Submit a science-based resource for COVID-19, which can be added to our growing list." />
+<meta property="og:image" content="<%= image_url('resources_open_graph.png') %>" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<% end %>
+
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=3276604539040033&autoLogAppEvents=1"></script>
+
+<% if true %>
+<!-- Navigation -->
+<%= render partial: 'navbar', locals: { active: 'SRE' } %>
+<% end %>
+
+<main>
+  <!-- Page Content -->
+  <div class="container">
+    <div class="col-md-12 mt-4">
+      <h1>Thanks!</h1>
+      <p>Someone will view the submission shortly and add it to the site shortly if it meets out criteria for publication.</p>
+      <%= link_to "Submit Another Resource", suggest_resource_path, class: "btn btn-primary" %> or
+      <%= link_to "Home", root_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</main>
+

@@ -5,13 +5,13 @@ class ResourcesController < ApplicationController
     resource.status = 'unapproved'
     resource.save!
 
-    redirect_to '/suggest-resource', notice: "Thank you for your submission."    
+    redirect_to '/thanks'
   end
 
 private
   def resource_params
     params.require(:resource).permit(:name, :url, :kind, :rich_description)
   end
-  
-  
+
+
 end

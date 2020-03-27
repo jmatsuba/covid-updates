@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get 'resources', to: 'pages#resources'
   post 'resources', to: 'resources#create'
   get 'suggest-resource', to: 'pages#suggest_resource'
+  get 'thanks', to: 'pages#thanks'
 end
