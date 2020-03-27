@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get 'resources', to: 'pages#resources'
+  post 'resources', to: 'resources#create'
+  get 'suggest-resource', to: 'pages#suggest_resource'
+  get 'thanks', to: 'pages#thanks'
 end

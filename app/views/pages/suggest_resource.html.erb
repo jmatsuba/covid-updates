@@ -1,0 +1,104 @@
+<% content_for :head do %>
+<title>Suggest a Science-Based Resource for COVID-19 (Novel Coronavirus)</title>
+<meta property="og:url" content="https://www.covid-updates.ca/suggest-resource" />
+<meta property="og:title" content="Suggest a Science-Based Resource for COVID-19 (Novel Coronavirus)" />
+<meta property="og:description"
+  content="Submit a science-based resource for COVID-19, which can be added to our growing list." />
+<meta property="og:image" content="<%= image_url('resources_open_graph.png') %>" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<% end %>
+
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=3276604539040033&autoLogAppEvents=1"></script>
+
+<% if true %>
+<!-- Navigation -->
+<%= render partial: 'navbar', locals: { active: 'SRE' } %>
+<% end %>
+
+<main>
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-4 mb-1">Submit a helpful resource.</h1>
+          <p class="lead mb-5 text-white-50">We're looking for science-based resources that can help people stay
+            informed on the outbreak of COVID-19. If you have a video, article, or website that you think offers useful
+            information, please submit it below.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <div class="form-group">
+
+      <%= form_for [@resource] do |form| %>
+      <% if @resource.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this resource from being saved:</h2>
+
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= form.label :name %>
+        <%= form.text_field :name, required: true, class: "form-control"%>
+      </div>
+
+      <div class="field">
+        <%= form.label :Link %>
+        <%= form.text_field :url, required: true, class: "form-control"%>
+      </div>
+
+      <div class="field">
+        <%= form.label :Description %>
+        <%= form.rich_text_area :rich_description, required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.label :Kind %>
+        <%= form.select(:kind, [['Video', 'youtube_video'], ['Article', 'article'], ['Website', 'website']]) %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit 'Submit', class: "btn btn-primary" %>
+      </div>
+      <% end %>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">We are in this together.</p>
+    <p class="m-0 text-center text-white"><a href="mailto:feedback@covid-updates.ca">feedback@covid-updates.ca</a> </p>
+    <p>
+      <div class="fb-share-button" data-href="https://www.covid-updates.ca/" data-layout="button_count"
+        data-size="large"><a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.covid-updates.ca%2F&amp;src=sdkpreparse"
+          class="fb-xfbml-parse-ignore">Share</a></div>
+    </p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+<script type="text/javascript">
+  window._mfq = window._mfq || [];
+  (function () {
+    var mf = document.createElement("script");
+    mf.type = "text/javascript"; mf.defer = true;
+    mf.src = "//cdn.mouseflow.com/projects/a7a5fb50-d2c1-4edf-ba8c-d9596cd6dd83.js";
+    document.getElementsByTagName("head")[0].appendChild(mf);
+  })();
+</script>

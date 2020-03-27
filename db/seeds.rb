@@ -2,6 +2,7 @@
 
 User.destroy_all
 Category.destroy_all
+Resource.destroy_all
 
 print 'Seeding db...'
 ##

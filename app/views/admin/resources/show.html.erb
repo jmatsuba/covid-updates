@@ -17,7 +17,7 @@
               <h6 class="col-md-4 text-md-right"><strong><%= attribute.titleize %>:</strong></h6>
               <div class="col-md-6">
                 <% if attribute == 'category'%>
-                  <%= @resource.category.name %>
+                  <%= @resource.category ? @resource.category.name : 'Uncategorized' %>
                 <% else %>
                   <%= @resource[attribute] %>
                 <% end %>

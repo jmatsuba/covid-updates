@@ -18,6 +18,7 @@
 <%= render partial: 'navbar', locals: { active: 'RES' } %> 
 <% end %>
 
+<main>
 <!-- Header -->
 <header class="bg-primary py-5 mb-5">
   <div class="container h-100">
@@ -45,11 +46,20 @@
     </div>
 
     <% Category.where(kind: 'general').order(:priority).each do |category| %>
-      <% category.resources.each do |resource| %>
+      <% category.resources.where(status: 'approved').each do |resource| %>
         <%= render partial: 'resource-card', locals: { resource: resource } %>
       <% end %>
 
     <% end %>
+  </div>
+
+  <hr>
+
+  <div class="col-md-12">
+    <h2>Do you have resources?</h2>
+    <p>
+      If you have resources that you'd like to contribute, you can <a href="/suggest-resource">submit them through the suggestion form</a>.
+    </p>
   </div>
 
   <% if true %>
@@ -182,6 +192,7 @@ We recommend moving this block and the preceding CSS link to the HEAD of your HT
 
 </div>
 <!-- /.container -->
+</main>
 
 <!-- Footer -->
 <footer class="py-5 bg-dark">
