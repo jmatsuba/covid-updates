@@ -10,10 +10,10 @@
 </div>
 
   <%= form_for_filterrific @filterrific do |f| %>
-    <div class="container d-flex flex-column mb-4">
+    <div class="container d-flex flex-column">
     
       <div class="d-flex flex-row-reverse">
-        <%= link_to('Reset Filters', reset_filterrific_url, class: "btn btn-info mb-3 align-bottom") %>
+        <%= link_to('Reset Filters', reset_filterrific_url, class: "btn btn-info mb-2 align-bottom") %>
       </div>
 
       <main class="card card-body bg-light d-flex flex-row h-25 mx-auto">
@@ -57,6 +57,9 @@
       
     </div>
   <% end %>
+  <div class="w-25 col-md-6 mt-3 mb-3 ml-5">
+    <h6><%= @resources.count %> results</h6>
+  </div>
 
 
 <%= render 'list', resources: @resources %>
