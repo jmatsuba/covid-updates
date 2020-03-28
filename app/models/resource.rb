@@ -8,4 +8,8 @@ class Resource < ApplicationRecord
 
   paginates_per 50
 
+  scope :with_category_id, ->(id) { where(category_id: id) }
+  scope :approved, -> { where(status: "approved") }
+  scope :unapproved, -> { where(status: ["draft", "rejected", "removed", "pending_review"]) }
+
 end

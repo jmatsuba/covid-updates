@@ -42,7 +42,7 @@
   <div class="row">
     <% Category.where(kind: 'daily_update').order(:priority).each do |category| %>
       <div class="col-md-12">
-        <h2><%= category.name %></h2>
+        <h2><%= link_to category.name, region_home_path(category.slug) %></h2>
       </div>
 
       <% category.resources.by_date.first(3).each do |resource| %>

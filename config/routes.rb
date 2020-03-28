@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post 'resources', to: 'resources#create'
   get 'suggest-resource', to: 'pages#suggest_resource'
   get 'thanks', to: 'pages#thanks'
+  get ':region_slug', to: 'pages#region_home', as: :region_home
 end
