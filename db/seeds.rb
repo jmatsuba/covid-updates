@@ -21,10 +21,7 @@ ab = Category.create!(name: 'Alberta', kind: 'daily_update', priority: 2, slug: 
 bc = Category.create!(name: 'British Columbia', kind: 'daily_update', priority: 3, slug: 'british-columbia')
 on = Category.create!(name: 'Ontario', kind: 'daily_update', priority: 4, slug: 'ontario')
 
-about = Category.create!(name: 'About', kind: 'general', priority: 1, slug: 'about')
-spread = Category.create!(name: 'Spread', kind: 'general', priority: 2, slug: 'spread')
-tools = Category.create!(name: 'Tools', kind: 'general', priority: 3, slug: 'tools')
-other = Category.create!(name: 'Other', kind: 'general', priority: 4, slug: 'other')
+
 
 ##
 # Resources
@@ -38,7 +35,8 @@ resources = Resource.create!([
     start_time: 915,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
     category: national,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   }, {
     name: 'March 22, 2020',
     rich_description: "Prime Minister Justin Trudeau says the $82-billion financial package announced earlier this week is just 'a very first step' as health-care officials warn social distancing could last months.",
@@ -46,7 +44,8 @@ resources = Resource.create!([
     start_time: 921,
     date: DateTime.new(2020, 3, 22, 8, 0, 0, '-07:00'),
     category: national,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   }, {
     name: 'March 21, 2020',
     rich_description: "Prime Minister Justin Trudeau says the government is doing all it can to help bring home Canadians, but conceded it won't be able to help everyone.",
@@ -54,7 +53,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 21, 8, 0, 0, '-07:00'),
     category: national,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 20, 2020',
@@ -63,7 +63,8 @@ resources = Resource.create!([
     start_time: 887,
     date: DateTime.new(2020, 3, 20, 8, 0, 0, '-07:00'),
     category: national,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 23, 2020',
@@ -73,7 +74,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
     category: ab,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 21, 2020',
@@ -83,7 +85,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 21, 8, 0, 0, '-07:00'),
     category: ab,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 20, 2020',
@@ -93,7 +96,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 20, 8, 0, 0, '-07:00'),
     category: ab,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 19, 2020',
@@ -103,7 +107,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 19, 8, 0, 0, '-07:00'),
     category: ab,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 23, 2020',
@@ -121,7 +126,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
     category: bc,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 21, 2020',
@@ -138,7 +144,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 21, 8, 0, 0, '-07:00'),
     category: bc,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 20, 2020',
@@ -155,7 +162,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 20, 8, 0, 0, '-07:00'),
     category: bc,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 19, 2020',
@@ -172,7 +180,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 19, 8, 0, 0, '-07:00'),
     category: bc,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 23, 2020',
@@ -182,7 +191,8 @@ resources = Resource.create!([
     start_time: 2521,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
     category: on,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 21, 2020',
@@ -192,7 +202,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 21, 8, 0, 0, '-07:00'),
     category: on,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 20, 2020',
@@ -202,7 +213,8 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 20, 8, 0, 0, '-07:00'),
     category: on,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   },
   {
     name: 'March 19, 2020',
@@ -212,9 +224,17 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 19, 8, 0, 0, '-07:00'),
     category: on,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    status: 'approved'
   }
 ])
+
+
+
+basics = Category.create!(name: 'Basics', kind: 'general', priority: 1, slug: 'basics')
+flatten = Category.create!(name: 'Flattening the Curve', kind: 'general', priority: 2, slug: 'flatten_the_curve')
+tools = Category.create!(name: 'Tools', kind: 'general', priority: 3, slug: 'tools')
+other = Category.create!(name: 'Other', kind: 'general', priority: 4, slug: 'other')
 
 resources = Resource.create!([
   {
@@ -223,8 +243,10 @@ resources = Resource.create!([
     video_id: 'mOV1aBVYKGA',
     start_time: nil,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'youtube_video'
+    category: basics,
+    kind: 'youtube_video',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'How To See Germs Spread',
@@ -232,8 +254,10 @@ resources = Resource.create!([
     video_id: 'I5-dI74zxPg',
     start_time: nil,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'youtube_video'
+    category: flatten,
+    kind: 'youtube_video',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: '"Get prepared as soon as you can", says Italian doctor',
@@ -242,7 +266,9 @@ resources = Resource.create!([
     start_time: nil,
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
     category: other,
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”',
@@ -250,8 +276,10 @@ resources = Resource.create!([
     thumbnail: 'https://i.imgur.com/EARMU7X.png',
     rich_description: 'The early trickle of new coronavirus infections has turned into a steady current. By creating simple simulations, we can see how to slow it down.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'article'
+    category: flatten,
+    kind: 'article',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'The Korean clusters',
@@ -259,17 +287,21 @@ resources = Resource.create!([
     thumbnail: 'https://i.imgur.com/qU2f8Ej.png',
     rich_description: 'How coronavirus cases exploded in South Korean churches and hospitals. A analysis of early spread of the virus in South Korean.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'article'
+    category: flatten,
+    kind: 'article',
+    priority: 1,
+    status: 'approved'
   },
   {
-    name: 'Why outbreaks like coronavirus spread exponentially, and how to “flatten the curve”',
+    name: 'World Health Organization (WHO) - Advice for the public',
     url: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public',
     thumbnail: 'https://i.imgur.com/xyHuO3Z.png',
     rich_description: 'Tips from the World Health Organization on how to handle the coronavirus. Stay aware of the latest information on the COVID-19 outbreak, available on the WHO website and through your national and local public health authority.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'article'
+    category: basics,
+    kind: 'article',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'World Health Organization (WHO) - How to protect yourself',
@@ -277,27 +309,33 @@ resources = Resource.create!([
     thumbnail: 'https://i.imgur.com/xyHuO3Z.png',
     rich_description: 'It is spread from person to person mainly through the droplets produced when an infected person speaks, coughs or sneezes. Watch this short animation to learn more about COVID-19 and how to protect yourself against it.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
+    category: basics,
     video_id: '1APwq1df6Mw',
-    kind: 'youtube_video'
+    kind: 'youtube_video',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'Worldometer - Global Coronavirus Stats (Live)',
-    url: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public',
-    thumbnail: 'https://i.imgur.com/xyHuO3Z.png',
+    url: 'https://www.worldometers.info/coronavirus/',
+    thumbnail: 'https://i.imgur.com/rXXvDlK.png',
     rich_description: 'Live statistics and coronavirus news tracking the number of confirmed cases, recovered patients, and death toll by country due to the COVID 19 coronavirus.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'website'
+    category: tools,
+    kind: 'website',
+    priority: 1,
+    status: 'approved'
   },
   {
     name: 'BC COVID-19 Self-Assessment Tool',
-    url: 'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public',
-    thumbnail: 'https://i.imgur.com/xyHuO3Z.png',
+    url: 'https://bc.thrive.health/',
+    thumbnail: 'https://i.imgur.com/fjhKvRc.png',
     rich_description: 'B.C. Ministry of Health in partnership with Thrive Health has created the COVID-19 Self-Assessment Tool for you. This tool will determine whether you may need further assessment or testing for COVID-19.',
     date: DateTime.new(2020, 3, 23, 8, 0, 0, '-07:00'),
-    category: other,
-    kind: 'website'
+    category: tools,
+    kind: 'website',
+    priority: 1,
+    status: 'approved'
   },
 ])
 

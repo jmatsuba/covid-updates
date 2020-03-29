@@ -15,183 +15,189 @@
 
 <% if true %>
 <!-- Navigation -->
-<%= render partial: 'navbar', locals: { active: 'RES' } %> 
+<%= render partial: 'navbar', locals: { active: 'RES' } %>
 <% end %>
 
 <main>
-<!-- Header -->
-<header class="bg-primary py-5 mb-5">
-  <div class="container h-100">
-    <div class="row h-100 align-items-center">
-      <div class="col-lg-12">
-        <h1 class="display-4 text-white mt-4 mb-1">Recommended COVID-19 Resources</h1>
-        <p class="lead mb-5 text-white-50">A curated list of videos, articles and websites that are relevant during this
-          crisis. <br> <br>
-          Not all of these resources are not issued by a accredited health authority. Please be sure to form your own
-          opinion on the validity
-          of the information they contain.</p>
-      </div>
-    </div>
-  </div>
-</header>
-
-<!-- Page Content -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Recommended Resources</h2>
-      <p>
-        This list will grow as new content is found.
-      </p>
-    </div>
-
-    <% Category.where(kind: 'general').order(:priority).each do |category| %>
-      <% category.resources.where(status: 'approved').each do |resource| %>
-        <%= render partial: 'resource-card', locals: { resource: resource } %>
-      <% end %>
-
-    <% end %>
-  </div>
-
-  <hr>
-
-  <div class="col-md-12">
-    <h2>Do you have resources?</h2>
-    <p>
-      If you have resources that you'd like to contribute, you can <a href="/suggest-resource">submit them through the suggestion form</a>.
-    </p>
-  </div>
-
-  <% if true %>
-  <hr>
-  <div class="col-md-12">
-    <h2>Want to Help?</h2>
-    <p>
-      Right now I'm building and maintaining this site as a free solo side project. Updates are limited to AB/BC/ON/National Updates
-      right now as I live in Vancouver, and only have time to update this content. However, It would be helpful to have
-      someone from each province updating their content. The intention is to provide this site free of charge as a community resource.
-    </p>
-    <p>
-      I am looking for people who can help build content and responsibly promote the site.
-    </p>
-    <p class="m-0 text-center text-white"><a href="mailto:feedback@covid-updates.ca">feedback@covid-updates.ca</a> </p>
-  </div>
-  <hr>
-  <% end %>
-
-  <% if false %>
-  <div class="col-md-12">
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Subscribe</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <!-- Begin Mailchimp Signup Form -->
-            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-            <style type="text/css">
-              #mc_embed_signup {
-                background: #fff;
-                clear: left;
-                font: 14px Helvetica, Arial, sans-serif;
-              }
-
-              /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
-We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-            </style>
-            <div id="mc_embed_signup">
-              <form
-                action="https://matsuba.us15.list-manage.com/subscribe/post?u=cf8c4bbf5fab55beb7426a6db&amp;id=e1ffcd1c60"
-                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-                target="_blank" novalidate>
-                <div id="mc_embed_signup_scroll">
-                  <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                  <div class="mc-field-group">
-                    <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
-                    </label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-                  </div>
-                  <div class="mc-field-group input-group">
-                    <strong>Get Notifications For </strong>
-                    <ul>
-                      <li><input type="checkbox" value="2" name="group[12945][2]" id="mce-group[12945]-12945-0"><label
-                          for="mce-group[12945]-12945-0">Gov of Canada</label></li>
-                      <li><input type="checkbox" value="4" name="group[12945][4]" id="mce-group[12945]-12945-1"><label
-                          for="mce-group[12945]-12945-1">Alberta</label></li>
-                      <li><input type="checkbox" value="8" name="group[12945][8]" id="mce-group[12945]-12945-2"><label
-                          for="mce-group[12945]-12945-2">British Columbia</label></li>
-                      <li><input type="checkbox" value="16" name="group[12945][16]" id="mce-group[12945]-12945-3"><label
-                          for="mce-group[12945]-12945-3">Ontario</label></li>
-                    </ul>
-                  </div>
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                  </div>
-                  <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
-                      name="b_cf8c4bbf5fab55beb7426a6db_e1ffcd1c60" tabindex="-1" value=""></div>
-
-                </div>
-
-            </div>
-
-            <!--End mc_embed_signup-->
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
-                class="button btn btn-primary"></div>
-            </form>
-          </div>
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-4 mb-1">Recommended COVID-19 Resources</h1>
+          <p class="lead mb-5 text-white-50">A curated list of videos, articles and websites that are relevant during
+            this
+            crisis. <br> <br>
+            Some of these resources are not issued by a accredited health authority. Please be sure to form your own
+            opinion on the validity
+            of the information they contain.</p>
         </div>
       </div>
     </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+    <% Category.where(kind: 'general').order(:priority).each do |category| %>
+      <% if category.resources.present? %>
+        <div class="row">
+          <div class="col-md-12">
+            <h2><%= category.name %></h2>
+          </div>
+          <% category.resources.where(status: 'approved').each do |resource| %>
+            <%= render partial: 'resource-card', locals: { resource: resource } %>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="container">
+
+    <hr>
+
+    <div class="col-md-12">
+      <h2>Do you have resources?</h2>
+      <p>
+        If you have resources that you'd like to contribute, you can <a href="/suggest-resource">submit them through the
+          suggestion form</a>.
+      </p>
+    </div>
+
+    <% if true %>
+    <hr>
+    <div class="col-md-12">
+      <h2>Want to Help?</h2>
+      <p>
+        Right now I'm building and maintaining this site as a free solo side project. Updates are limited to
+        AB/BC/ON/National Updates
+        right now as I live in Vancouver, and only have time to update this content. However, It would be helpful to
+        have
+        someone from each province updating their content. The intention is to provide this site free of charge as a
+        community resource.
+      </p>
+      <p>
+        I am looking for people who can help build content and responsibly promote the site.
+      </p>
+      <p class="m-0 text-center text-white"><a href="mailto:feedback@covid-updates.ca">feedback@covid-updates.ca</a>
+      </p>
+    </div>
+    <hr>
+    <% end %>
+
+    <% if false %>
+    <div class="col-md-12">
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Subscribe</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- Begin Mailchimp Signup Form -->
+              <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+              <style type="text/css">
+                #mc_embed_signup {
+                  background: #fff;
+                  clear: left;
+                  font: 14px Helvetica, Arial, sans-serif;
+                }
+
+                /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+              </style>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://matsuba.us15.list-manage.com/subscribe/post?u=cf8c4bbf5fab55beb7426a6db&amp;id=e1ffcd1c60"
+                  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                  target="_blank" novalidate>
+                  <div id="mc_embed_signup_scroll">
+                    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL">Email Address <span class="asterisk">*</span>
+                      </label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                    </div>
+                    <div class="mc-field-group input-group">
+                      <strong>Get Notifications For </strong>
+                      <ul>
+                        <li><input type="checkbox" value="2" name="group[12945][2]" id="mce-group[12945]-12945-0"><label
+                            for="mce-group[12945]-12945-0">Gov of Canada</label></li>
+                        <li><input type="checkbox" value="4" name="group[12945][4]" id="mce-group[12945]-12945-1"><label
+                            for="mce-group[12945]-12945-1">Alberta</label></li>
+                        <li><input type="checkbox" value="8" name="group[12945][8]" id="mce-group[12945]-12945-2"><label
+                            for="mce-group[12945]-12945-2">British Columbia</label></li>
+                        <li><input type="checkbox" value="16" name="group[12945][16]"
+                            id="mce-group[12945]-12945-3"><label for="mce-group[12945]-12945-3">Ontario</label></li>
+                      </ul>
+                    </div>
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                        name="b_cf8c4bbf5fab55beb7426a6db_e1ffcd1c60" tabindex="-1" value=""></div>
+
+                  </div>
+
+              </div>
+
+              <!--End mc_embed_signup-->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe"
+                  class="button btn btn-primary"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+
+
+    <h2>Discussion, Comments or Recommend New Resources</h2>
+    <p>Resources will be reviewed and only ones that appear to be based on scientific facts and that are from credible
+      sources will be added to the site. </p>
+    <div id="disqus_thread"></div>
+    <script>
+
+      var disqus_config = function () {
+        this.page.url = 'https://www.covid-updates.ca/resources';
+        this.page.identifier = 'resources';
+      };
+
+      (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://covidupdates.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+
+
+
+    <% if false %>
+    <div class="col-md-4">
+      <p>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Get Emailed When A New Video Is Posted
+        </button>
+      </p>
+    </div>
+    <% end %>
 
   </div>
-  <% end %>
-
-
-  <h2>Discussion, Comments or Recommend New Resources</h2>
-  <p>Resources will be reviewed and only ones that appear to be based on scientific facts and that are from credible
-    sources will be added to the site. </p>
-  <div id="disqus_thread"></div>
-  <script>
-
-    var disqus_config = function () {
-      this.page.url = 'https://www.covid-updates.ca/resources';
-      this.page.identifier = 'resources';
-    };
-
-    (function () { // DON'T EDIT BELOW THIS LINE
-      var d = document, s = d.createElement('script');
-      s.src = 'https://covidupdates.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-
-
-
-  <% if false %>
-  <div class="col-md-4">
-    <p>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Get Emailed When A New Video Is Posted
-      </button>
-    </p>
-  </div>
-  <% end %>
-
-</div>
-<!-- /.container -->
+  <!-- /.container -->
 </main>
 
 <!-- Footer -->

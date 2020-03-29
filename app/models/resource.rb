@@ -5,6 +5,7 @@ class Resource < ApplicationRecord
   has_rich_text :rich_description
 
   scope :by_date, -> { order(date: :desc) }
+  scope :by_priority, -> { order(:priority) }
 
   filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
@@ -16,7 +17,7 @@ class Resource < ApplicationRecord
 
     # condition query, parse into individual keywords
     terms = query.downcase.split(/\s+/)
-  
+
     # replace "*" with "%" for wildcard searches,
     # append '%', remove duplicate '%'s
     terms = terms.map { |e|
@@ -34,11 +35,11 @@ class Resource < ApplicationRecord
         }.join(" AND "),
         *terms.map { |e| [e] * num_or_conds }.flatten,
       )
-    }  
+    }
 
   scope :sorted_by, ->(sort_option) {
 
-    # simple regex match to extract sort direction 
+    # simple regex match to extract sort direction
     direction = /desc$/.match?(sort_option) ? "desc" : "asc"
 
     case sort_option.to_s
