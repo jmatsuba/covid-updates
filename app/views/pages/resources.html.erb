@@ -39,7 +39,7 @@
   <!-- Page Content -->
   <div class="container">
     <% Category.where(kind: 'general').order(:priority).each do |category| %>
-      <% if category.resources.present? %>
+      <% if category.resources.where(status: 'approved').present? %>
         <div class="row">
           <div class="col-md-12">
             <h2><%= category.name %></h2>
