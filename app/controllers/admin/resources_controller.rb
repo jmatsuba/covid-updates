@@ -9,7 +9,7 @@ class Admin::ResourcesController < Admin::BaseController
       select_options: {
         sorted_by: Resource.options_for_sorted_by,
         with_category_id: Category.options_for_select
-      },     
+      },
       persistence_id: "shared_key",
       default_filter_params: {},
       available_filters: [ :sorted_by, :search_query, :with_category_id, :with_resources_since ],
@@ -76,7 +76,7 @@ private
   end
 
     def resource_params
-      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :date, :description, :thumbnail, :video_id, :start_time, :rich_description)
+      params.require(:resource).permit(:name, :url, :kind, :priority, :category_id, :user_id, :date, :description, :status, :thumbnail, :video_id, :start_time, :rich_description)
     end
 
 end
