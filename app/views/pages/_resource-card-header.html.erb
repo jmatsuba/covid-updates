@@ -1,10 +1,19 @@
-  <% case resource.kind %>
-  <% when 'youtube_video' %>
-    <div class="embed-responsive embed-responsive-16by9 card-img-top">
-      <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>" allowfullscreen></iframe>
-    </div>
-  <% when 'article' %>
+<% case resource.kind %>
+<% when 'youtube_video' %>
+  <div class="embed-responsive embed-responsive-16by9 card-img-top">
+    <iframe class="embed-responsive-item"
+      src="https://www.youtube.com/embed/<%= resource.video_id %>?t=<%= resource.start_time %>" allowfullscreen></iframe>
+  </div>
+<% when 'article' %>
+  <% if resource.thumbnail.present? %>
     <img class="card-img-top" src="<%= resource.thumbnail %>" alt="Card image cap">
-  <% when 'website' %>
-    <img class="card-img-top" src="<%= resource.thumbnail %>" alt="Card image cap">
+  <% else %>
+    <img class="card-img-top" src="https://placehold.it/500x280" alt="Card image cap">
   <% end %>
+<% when 'website' %>
+  <% if resource.thumbnail.present? %>
+    <img class="card-img-top" src="<%= resource.thumbnail %>" alt="Card image cap">
+  <% else %>
+    <img class="card-img-top" src="https://placehold.it/500x280" alt="Card image cap">
+  <% end %>
+<% end %>
