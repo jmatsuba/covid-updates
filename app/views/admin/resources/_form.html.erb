@@ -36,49 +36,49 @@
 
             <div class="form-group row">
               <%= form.label :name,"Display Name for Website", class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.text_field :name %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :video_id, "Youtube Video ID", class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.text_field :video_id %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :start_time, "Start Time (sec)", class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.number_field :start_time %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :url, "URL (not needed for youtube videos)", class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.text_field :url %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :thumbnail, "Thumbnail URL (not needed for youtube videos)", class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
-                <%= form.text_field :thumbnail %>
+              <div class="col-md-6 mt-3">
+                <%= form.file_field :thumbnail %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :priority, class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.number_field :priority %>
               </div>
             </div>
 
             <div class="form-group row">
               <%= form.label :date, class: "col-md-4 col-form-label text-md-right" %>
-              <div class="col-md-6">
+              <div class="col-md-6 mt-3">
                 <%= form.date_field :date %>
               </div>
             </div>
