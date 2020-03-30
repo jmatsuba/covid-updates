@@ -26,11 +26,20 @@
           <% end %>
 
           <div class="row mb-3">
-            <h6 class="col-md-4 text-md-right"><strong>Rich Description:</strong></h6>
+            <h6 class="col-md-4 text-md-right"><strong>Rich Description: </strong></h6>
             <div class="col-md-6">
                 <%= @resource.rich_description %>
             </div>
           </div>
+
+          <% if @resource.thumbnail.present? %>
+            <div class="row mb-3">
+              <h6 class="col-md-4 text-md-right"><strong>Thumbnail: </strong></h6>
+              <div class="col-md-6">
+                  <%= image_tag url_for(@resource.thumbnail), class: 'img-thumbnail' %>
+              </div>
+            </div>
+          <% end %>
 
           <div class="col-md-8 offset-md-0 d-flex">
             <h5><%= link_to 'Edit', edit_admin_resource_path(@resource), class: "pr-3" %></h5>
