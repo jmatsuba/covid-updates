@@ -66,6 +66,9 @@
               <%= form.label :thumbnail, "Thumbnail URL (not needed for youtube videos)", class: "col-md-4 col-form-label text-md-right" %>
               <div class="col-md-6 mt-3">
                 <%= form.file_field :thumbnail %>
+                <% if @resource.thumbnail.present? %>
+                  <%= image_tag url_for(@resource.thumbnail), class: 'img-thumbnail mt-2' %>
+                <% end %>
               </div>
             </div>
 
