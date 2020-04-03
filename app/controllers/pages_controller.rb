@@ -12,7 +12,7 @@ class PagesController < ApplicationController
 
   def region_home
     @category = Category.find_by!(slug: params[:region_slug])
-    @resources = Resource.with_category_id(@category.id).approved
+    @resources = Resource.with_category_id(@category.id).by_date
   end
 
 end
